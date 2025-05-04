@@ -1,24 +1,17 @@
 import { useState, useEffect } from "react";
-
 import { navLinks } from "../constants";
 
+// If your logo is in /public/logo.png, you don't need to import it.
 const NavBar = () => {
-  // track if the user has scrolled down the page
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // create an event listener for when the user scrolls
     const handleScroll = () => {
-      // check if the user has scrolled down at least 10px
-      // if so, set the state to true
       const isScrolled = window.scrollY > 10;
       setScrolled(isScrolled);
     };
 
-    // add the event listener to the window
     window.addEventListener("scroll", handleScroll);
-
-    // cleanup the event listener when the component is unmounted
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -26,7 +19,13 @@ const NavBar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         <a href="#hero" className="logo">
-          FELIXBEST DEV
+          <a href="#hero" className="logo">
+            <img
+              src="/images/fav.png"
+              alt="FelixBest Logo"
+              className="h-30 w-30 rounded-full object-cover"
+            />
+          </a>
         </a>
 
         <nav className="desktop">
@@ -50,6 +49,6 @@ const NavBar = () => {
       </div>
     </header>
   );
-}
+};
 
 export default NavBar;
