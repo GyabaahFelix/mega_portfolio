@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { navLinks } from "../constants";
 
-// If your logo is in /public/logo.png, you don't need to import it.
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -19,13 +18,11 @@ const NavBar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         <a href="#hero" className="logo">
-          <a href="#hero" className="logo">
-            <img
-              src="/images/fav.png"
-              alt="FelixBest Logo"
-              className="h-30 w-30 rounded-full object-cover"
-            />
-          </a>
+          <img
+            src="/images/fav.png"
+            alt="FelixBest Logo"
+            className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
+          />
         </a>
 
         <nav className="desktop">
