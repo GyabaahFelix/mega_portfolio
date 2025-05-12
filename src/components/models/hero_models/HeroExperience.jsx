@@ -9,12 +9,12 @@ import HeroLights from "./HeroLights";
 import Particles from "./Particles";
 
 // ✅ Circular 3D Image Component
-const CircularImage = () => {
+const CircularImage = ({ scale, position }) => {
   const texture = useLoader(TextureLoader, "/images/felix.jpg");
 
   return (
-    <mesh position={[0, -2.2, 0]}>
-      <circleGeometry args={[3.5, 128]} />
+    <mesh position={position}>
+      <circleGeometry args={[3.5 * scale, 128]} />
       <meshPhysicalMaterial
         map={texture}
         clearcoat={1}
@@ -34,74 +34,79 @@ const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
+  // Adjust values based on screen size
+  const scale = isMobile ? 0.5 : isTablet ? 0.75 : 1;
+  const fov = isMobile ? 35 : isTablet ? 42 : 45;
+  const textFontSize = isMobile ? 0.4 : 0.5;
+  const mainTextFontSize = isMobile ? 0.8 : 1;
+  const imagePosition = isMobile ? [0, -2.5, 0] : [0, -2.2, 0];
+
+  const textContent = ["FELIXBEST", "ELFENOMENO"];
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 15], fov: 45 }}
-      style={{
-        width: "100%",
-        height: "100vh",
-        background: "radial-gradient(circle at center, #0f0f2d, #000000)",
-      }}
-    >
-      <fog attach="fog" args={["#000000", 10, 25]} />
+    <section className="overflow-x-hidden">
+      <Canvas
+        camera={{ position: [0, 0, 15], fov }}
+        style={{
+          width: "100%",
+          height: "100vh",
+          background: "radial-gradient(circle at center, #0f0f2d, #000000)",
+        }}
+      >
+        <fog attach="fog" args={["#000000", 10, 25]} />
 
-      {/* Adjusted lights for clarity */}
-      <ambientLight intensity={0.4} color="#ffffff" />
-      <directionalLight
-        intensity={1}
-        color="#ffffff"
-        position={[0, 5, 5]}
-        castShadow
-      />
-
-      <OrbitControls
-        enablePan={false}
-        enableZoom={!isTablet}
-        maxDistance={20}
-        minDistance={5}
-        minPolarAngle={Math.PI / 5}
-        maxPolarAngle={Math.PI / 2}
-      />
-
-      <Suspense fallback={null}>
-        <HeroLights />
-        <Particles count={150} color="#00fff7" />
-
-        {/* Move text upward to give image space */}
-        <Text
-          position={[0, 2.5, 0]} // Lowered
-          fontSize={1}
+        {/* Lighting */}
+        <ambientLight intensity={0.4} color="#ffffff" />
+        <directionalLight
+          intensity={1}
           color="#ffffff"
-          anchorX="center"
-          anchorY="middle"
-        >
-          FELIXBEST
-        </Text>
+          position={[0, 5, 5]}
+          castShadow
+        />
 
-        <Text
-          position={[0, 1.7, 0]} // Lowered
-          fontSize={0.5}
-          color="#ff0080"
-          anchorX="center"
-          anchorY="middle"
-        >
-          ELFENOMENO
-        </Text>
+        <OrbitControls
+          enablePan={false}
+          enableZoom={!isTablet}
+          maxDistance={20}
+          minDistance={5}
+          minPolarAngle={Math.PI / 5}
+          maxPolarAngle={Math.PI / 2}
+        />
 
-        <Text
-          position={[0, 3.1, 0]}
-          fontSize={0.5}
-          color="#ff0080"
-          anchorX="center"
-          anchorY="middle"
-        >
-          ELFENOMENO
-        </Text>
+        <Suspense fallback={null}>
+          <HeroLights />
+          <Particles count={150} color="#00fff7" />
 
-        {/* Big Circular Image with improved lighting */}
-        <CircularImage />
-      </Suspense>
-    </Canvas>
+          {/* Main Text */}
+          <Text
+            position={[0, 2.5, 0]}
+            fontSize={mainTextFontSize}
+            color="#ffffff"
+            anchorX="center"
+            anchorY="middle"
+          >
+            {textContent[0]}
+          </Text>
+
+          {/* Sub Text */}
+          {textContent.slice(1).map((text, index) => (
+            <Text
+              key={index}
+              position={[0, 1.7 - index * 0.6, 0]}
+              fontSize={textFontSize}
+              color="#ff0080"
+              anchorX="center"
+              anchorY="middle"
+            >
+              {text}
+            </Text>
+          ))}
+
+          {/* Circular Image */}
+          <CircularImage scale={scale} position={imagePosition} />
+        </Suspense>
+      </Canvas>
+    </section>
   );
 };
 

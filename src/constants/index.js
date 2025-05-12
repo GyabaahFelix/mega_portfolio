@@ -10,17 +10,17 @@ const navLinks = [
 ];
 
 const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
+  { text: "Visions", imgPath: "/images/ideas.svg" },
   { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
+  { text: "Mockups", imgPath: "/images/designs.svg" },
   { text: "Code", imgPath: "/images/code.svg" },
 ];
 
 const counterItems = [
-  { value: 3, suffix: "+", label: "Years of Experience" },
   { value: 18, suffix: "+", label: "Satisfied Clients" },
   { value: 40, suffix: "+", label: "Completed Projects" },
   { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { value: 3, suffix: "+", label: "Years of Experience" },
 ];
 
 const logoIconsList = [
