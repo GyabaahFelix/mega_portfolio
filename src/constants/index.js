@@ -98,41 +98,62 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Felix brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
+  review:
+    "Felix brought creativity and technical expertise to the research team at DISAL, contributing significantly to data analysis and machine learning studies.",
+  imgPath: "/images/DISAL.jpg",
+  logoPath: "/images/DISAL.jpg",
+  title: "Research Intern – Data & Machine Learning",
+  date: "2022 - Present",
+  responsibilities: [
+    "Conducted research under the Data Intelligence and Swarm Analytics Laboratory (DISAL).",
+    "Analyzed datasets using machine learning models to extract meaningful insights.",
+    "Collaborated with researchers to explore AI-driven solutions for real-world data challenges.",
+  ],
+},
+
+
+  {
+    review:
+      "Felix brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    imgPath: "/images/unimall_logo.png",
+    logoPath: "/images/unimall_logo.png",
     title: "Frontend Developer",
     date: "2022 - Present",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
+      "Developed and maintained user-facing features for the UniMall website.",
       "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
       "Optimized web applications for maximum speed and scalability.",
     ],
   },
+
   {
-    review: "Felix’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
+    review:
+      "Felix’s contributions to Mikado's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    imgPath: "/images/mikado_logo.jpg",
+    logoPath: "/images/mikado_logo.jpg",
     title: "Full Stack Developer",
     date: "2024 - Present",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
+      "Led the development of Mikado's web applications, focusing on scalability.",
       "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Contributed to open-source projects that were used with the Mikado ecosystem.",
     ],
   },
+
   {
-    review: "Felix’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & met our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "2023 - Present",
-    responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
-    ],
-  },
+  review:
+    "Felix’s work as a XivhaWorld intern on the mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & met our product goals.",
+  imgPath: "/images/xivhalogo.png",
+  logoPath: "/images/xivhalogo.png",
+  title: "React Native Developer",
+  date: "2023 - Present",
+  responsibilities: [
+    "Built cross-platform mobile apps using React Native, integrating with XivhaWorld's backend services.",
+    "Improved app performance and user experience through code optimization and testing.",
+    "Coordinated with the product team to implement features based on feedback.",
+  ],
+}
+
 ];
 
 const expLogos = [
