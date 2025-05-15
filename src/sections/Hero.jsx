@@ -50,10 +50,10 @@ const Hero = () => {
               <h1>that deliver tangible results.</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
+            {/* <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
               Hello, I’m Felix — a Ghana-based developer who’s passionate about
               coding.
-            </p>
+            </p> */}
 
             <Button
               text="See My Work"
